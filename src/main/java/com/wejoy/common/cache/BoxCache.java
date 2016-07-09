@@ -28,9 +28,9 @@ import java.io.Serializable;
 public class BoxCache implements Serializable{
 	private static final long serialVersionUID = -2006977453274132467L;
 	
-	public int count;//计数器，表示当前元素占用的数目
+	public volatile int count;//计数器，表示当前元素占用的数目
 	public int maxCount; //表示boxCache的最大数目，用来判断是否要剔除
-    private long[] elements;//数组，存储实际的数据
+    private volatile long[] elements;//数组，存储实际的数据
     
     private static final int DEFAULT_SIZE = 200;
     private static final int MAX_SIZE = 2000;
